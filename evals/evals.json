@@ -1,0 +1,71 @@
+{
+  "skill_name": "huiben-02-ppt",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这两张是我拍的绘本原件（C:/Users/Zyz/AppData/Local/Temp/codex-clipboard-ee293384-c5b4-4661-b470-6711adcbb02c.png 和 C:/Users/Zyz/AppData/Local/Temp/codex-clipboard-5082cbd5-bf12-42d1-b0c3-c19dbb5e5606.png），转成能做视频的PPT，插画要把印刷文字去掉。",
+      "expected_output": "逐字转写两个跨页的编号块1-7（含页边截断补全清单），拆成逐镜页，用本机 ComfyUI 生成无文字 1344x768 的 16:9 底图，再由 Python/Pillow 叠加原文，组装成每页一张底图 + 可编辑楷体文本框的 16:9 PPTX，文字与原件逐字一致。",
+      "files": [],
+      "expectations": [
+        "按编号顺序转写，不按视觉顺序",
+        "ComfyUI 底图上没有任何印刷文字、页码、乱码或水印",
+        "PPTX 每页恰好一张插画",
+        "文字与原件逐字一致，未擅自改写",
+        "文字由 Python 叠加，PPTX 内仍为可编辑文本框",
+        "输出全本自检.json 且 allPassed 为 true",
+        "输出 shot-duration-plan.json，按逐页字数给出不同镜头计划帧数"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "只帮我把绘本扫描页的文字转出来并拆成一镜一页的清单，先不用生成插画和PPT。",
+      "expected_output": "原文逐字.md（按编号块、标注来源页、列出截断补全）+ slides.json 草稿，不触发 ComfyUI、不生成 PPTX。",
+      "files": [],
+      "expectations": [
+        "只产出转写与拆镜文件，不触发 ComfyUI 或 PPTX 生成",
+        "截断文字有补全清单"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "按上次胖胖兔那种 Comfy 出图、文字 Python 加的方式，把已有 slides.json 做成全本 PPT，我先看效果。",
+      "expected_output": "复用 slides.json 与逐页插画，先用本机 ComfyUI 串行生成 16:9 无字底图，再由 Python/Pillow 叠加中文原文，输出可编辑 16:9 PPTX、11页图文联系表、全本生成报告与 allPassed 自检。",
+      "files": [],
+      "expectations": [
+        "先检查 127.0.0.1:8188 状态与 ComfyUI 队列",
+        "底图为 1344x768 且不含任何文字/数字/水印",
+        "中文、数字、弯引号由 Python 叠加，PPTX 文本框可编辑",
+        "单页试跑后再串行生成全本，并人眼看联系表",
+        "全本自检.json 的 allPassed 为 true",
+        "交付 shot-duration-plan.json，交给视频 skill 作为阶段0输入"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "还是同样的问题，文字尽量不要覆盖图像，skill 要特别强调，调整一下。",
+      "expected_output": "把「整图铺满 16:9、文字可叠图但不得压角色」提升为最高优先级硬规则；文字放在页内天然空白纸面，不把整图缩小、裁切或改成图文分栏；让自检把文字框是否位于安全区、安全区是否含角色细节写入 allPassed。",
+      "files": [],
+      "expectations": [
+        "SKILL.md 明确最高优先级：整图铺满、文字可叠图、文字不得覆盖角色/人脸/身体/关键道具",
+        "文字逐页放在天然空白区，保证完整插画不缩小、不裁切、不做强制分栏",
+        "不使用底栏或遮罩盖住角色来规避文字问题",
+        "逐页输出 textSafeZone / textBoxInsideSafeZone 证据",
+        "全本自检.json 的 allPassed 为 true 且含 0 压图门槛",
+        "shot-duration-plan.json 保留逐页字数与视觉文字来源的一致性"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "PPT 每页文字多少不一样，做视频时 TTS 为了追等长镜头语速太快，两个 skill 都改一下。",
+      "expected_output": "huiben-02-ppt 增加 shot-duration-plan.json 中间产物；huiben-01-creater 在阶段0强制读取逐页字数，按 17n+5 分配不同镜头帧数，TTS 实测后回填 requiredAtempo，超过 1.15 即规划失败。",
+      "files": [],
+      "expectations": [
+        "两个 skill 都明确逐页字数差异不是等长镜头可忽略的信息",
+        "视频规划先于 H3 镜头生成和 TTS 合成",
+        "长页镜头计划时长明显大于短页，且帧数符合 17n+5",
+        "默认 atempo 1.0、硬上限 1.15，不再默认 1.35–1.45 追画面",
+        "验收报告包含 requiredAtempo 与 shot-duration-plan.json 的 check.passed"
+      ]
+    }
+  ]
+}

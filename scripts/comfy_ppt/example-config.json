@@ -1,0 +1,119 @@
+{
+  "title": "示例绘本",
+  "comfyui": "http://127.0.0.1:8188",
+  "sourceRoot": "../..",
+  "slidesJson": "../../03-转写与拆镜/slides.json",
+  "validatedRawRoot": "../01-Comfy底图",
+  "outputRoot": "..",
+  "width": 1344,
+  "height": 768,
+  "resolution": 1024,
+  "seedBase": 2026110621,
+  "font": "C:/Windows/Fonts/simkai.ttf",
+  "labelFont": "C:/Windows/Fonts/msyh.ttc",
+  "fontName": "楷体",
+  "margin": 72,
+  "boxWidthLeft": 560,
+  "boxWidthRight": 540,
+  "lineSpacing": 1.55,
+  "safeZonePadding": 22,
+  "safeChroma": 38,
+  "safeEdge": 18,
+  "safeZoneMaxDetailCoverage": 0.02,
+  "minFontPx": 16,
+  "styleTail": "整体保持参考图的中国低幼绘本水彩手绘风格：暖白纸面、淡彩晕染、细线勾边、柔和低饱和色彩、大量留白、纸张纹理。角色恒定：圆滚滚的白兔、长耳朵、红领结，袋鼠和篮球保持参考图造型。不要重绘角色，不要改变画风，不要新增肢体，不写实不3D。画面上绝对不能有任何文字、字母、数字、标题、页码、引号、水印、标签或印刷痕迹。",
+  "negative": "Chinese text, words, letters, numbers, captions, labels, watermarks, signatures, page numbers, speech bubbles, typography, artifacts, low quality, blurry, deformed limbs, extra limbs, distorted face, cropped characters, photorealistic, 3D render",
+  "pageLayouts": [
+    {
+      "id": "S01",
+      "textSide": "right",
+      "fontPx": 58,
+      "color": "D84A38",
+      "textSafeZone": [732, 90, 1272, 678],
+      "useValidatedRaw": true,
+      "prompt": "把参考图整理为16:9横构图：只保留本页主体，放在左侧偏中，右侧约40%只补暖白纸面与极淡纸纹，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S02",
+      "textSide": "left",
+      "fontPx": 28,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "useValidatedRaw": true,
+      "prompt": "把参考图整理为16:9横构图：只保留本页主体，放在右侧偏中，左侧约40%只补暖白纸面与极淡纸纹，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S03",
+      "textSide": "left",
+      "fontPx": 27,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留绿色山坡、坡顶松树与小亭、坡脚小小的白兔这一组场景，整体放在右侧偏中；左侧约40%只补暖白纸面、极淡纸纹和少量柔和淡彩，不要新增兔子、球、篮球场、袋鼠、文字或任何不相干角色，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S04",
+      "textSide": "left",
+      "fontPx": 27,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留左侧喘气的胖胖兔、绿色草地和右侧一起玩耍的小伙伴这一组场景，把主体压缩并整体放在右侧约60%区域；左侧约40%只补暖白纸面与极淡纸纹，不要新增兔子、球、山、树木、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S05",
+      "textSide": "right",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [732, 90, 1272, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留胖胖兔、棕色袋鼠、蓝色篮球和袋鼠手里的球拍这一组主体，把主体完整放在左侧偏中；右侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、山、植物、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S06",
+      "textSide": "left",
+      "fontPx": 26,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留白兔和蓝色篮球这一组主体，把主体完整放在右侧偏中；左侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、山、植物、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S07",
+      "textSide": "right",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [732, 90, 1272, 678],
+      "useValidatedRaw": true,
+      "prompt": "把参考图整理为16:9横构图：只保留本页主体，放在左侧偏中，右侧约40%只补暖白纸面与极淡纸纹，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S08",
+      "textSide": "right",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [732, 90, 1272, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留坐地上的胖胖兔与旁边弯腰的棕色袋鼠这一组主体，把主体完整放在左侧偏中；右侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、山、植物、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S09",
+      "textSide": "left",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留坐着的胖胖兔、蓝色篮球和地面淡绿色圆圈这一组主体，把主体完整放在右侧偏中；左侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、袋鼠、山、植物、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S10",
+      "textSide": "right",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [732, 90, 1272, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留胖胖兔、棕色袋鼠、木磅秤和黄色表盘这一组主体，把主体完整放在左侧偏中；右侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、山、植物、文字或水印，留出干净的中文排版空间。"
+    },
+    {
+      "id": "S11",
+      "textSide": "left",
+      "fontPx": 25,
+      "color": "4A3828",
+      "textSafeZone": [72, 90, 612, 678],
+      "prompt": "把参考图整理为16:9横构图：只保留胖胖兔、棕色袋鼠、小猴子和脚下淡绿色草地这一组收尾主体，把主体完整放在右侧偏中；左侧约40%只补暖白纸面与极淡纸纹，不要新增角色、球、山、植物、文字或水印，留出干净的中文排版空间。"
+    }
+  ]
+}
